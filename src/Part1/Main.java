@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Main {
 	
 	public static ArrayList<Block> blockChain = new ArrayList<>();
-	public static int difficulty = 2;	// ¾Õ 2ÀÚ¸®°¡ 00
+	public static int difficulty = 2;	// ï¿½ï¿½ 2ï¿½Ú¸ï¿½ï¿½ï¿½ 00
 	
 	public static void main(String[] args) {
 		System.out.println("start");
