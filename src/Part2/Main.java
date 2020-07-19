@@ -11,10 +11,10 @@ public class Main {
 	public static Wallet walletA;
 	public static Wallet walletB;
 	
-	public static Transation genesisTransaction;
+	public static Transaction genesisTransaction;
 	public static HashMap<String, TransactionOutput> UTXOs = new HashMap<>();
 	
-	public static minimunTransaction = 0.1f;
+	public static float minimunTransaction = 0.1f;
 	
 	public static void main(String[] args) {
 		
@@ -38,7 +38,7 @@ public class Main {
 
 		//5. Block1 »ý¼º
 		Block block1 = new Block(genesisBlock.hash);
-		Transaction tx = walletA.sendFunds(WalletB, 40f);
+		Transaction tx = walletA.sendFunds(walletB.publicKey, 40f);
 		block1.addTransaction(tx);
 		addBlock(block1);
 	

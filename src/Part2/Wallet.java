@@ -26,7 +26,7 @@ public class Wallet {
 	public float getBalance() {
 	    float total = 0;
 	    for (Map.Entry<String, TransactionOutput> item: Main.UTXOs.entrySet()) {
-	    	TransactoinOutput UTXO = item.getValue();
+			TransactionOutput UTXO = item.getValue();
 	    	if(UTXO.isMine(publicKey)) {
 	    		total += UTXO.value;
 				UTXO_Wallet.put(UTXO.id, UTXO);
@@ -49,13 +49,13 @@ public class Wallet {
 
 		float total = 0;
 		for (Map.Entry<String, TransactionOutput> item: UTXO_Wallet.entrySet()) {
-			TransactoinOutput UTXO = item.getValue();
+			TransactionOutput UTXO = item.getValue();
 			 total += UTXO.value;
 			 inputs.add(new TransactionInput(UTXO.id));
 			 if(total > value) break;
 		}
 
-		Transaction newTransaction = new Transaction(publicKey, _reciepent, inputs);
+		Transaction newTransaction = new Transaction(publicKey, _reciepent, value, inputs);
 		newTransaction.generateSignature(privateKey);	// 서명
 
 		// 전 단계 transaction input 제거
